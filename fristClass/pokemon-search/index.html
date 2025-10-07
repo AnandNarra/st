@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="q" type="text" placeholder="value ni enter cheuu ra puka">
+    <button id="go">Search</button>
+    <p id="info"></p>
+
+    <div id="result"></div> 
+
+    <script>
+        const q = document.querySelector("#q");
+        const go = document.querySelector("#go");
+        const result = document.querySelector("#result");
+        const info = document.querySelector("#info");
+
+        go.addEventListener("click", async function () {
+            const name = q.value.trim().toLowerCase();
+            result.innerHTML = "";
+            info.textContent = "Searching for pokemon species..."
+
+            if (!name) {
+
+                info.textContent = "Type a pokemon name..."
+                return;
+            }
+
+            try {
+
+               const response= await fetch(`https://pokeapi.co/api/v2/pokemon/${encodeURIComponent(name)}`);
+
+               const jsonData = await response.json();
+
+               console.log(jsonData)
+
+            } catch (error) {
+
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

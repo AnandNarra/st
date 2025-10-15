@@ -106,6 +106,7 @@ function requestRide(riderId, distance) {
     message: "Ride Confirmed",
     rideDetails: rideObj,
     updatedRider: RiderDetailes,
+    
     updatedDriver: DriversDetails
   };
 }

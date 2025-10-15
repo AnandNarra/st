@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* *{
+        margin: 0;
+        padding: 0;
+    } */
+    .card {
+        border: 2px solid black;
+        width: 500px;
+        height: 300px;
+        padding: 10px;
+        border-radius: 20px;
+        text-align: center;
+
+    }
+
+    .x {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+</style>
+
+<body>
+    <input id="q" type="text" placeholder="value ni enter cheuu ra puka">
+    <button id="go">Search</button>
+    <p id="info"></p>
+
+    <div id="result"></div>
+
+    <script>
+        const q = document.querySelector("#q");
+        const go = document.querySelector("#go");
+        const result = document.querySelector("#result");
+        const info = document.querySelector("#info");
+
+        go.addEventListener("click", async function () {
+            const name = q.value.trim().toLowerCase();
+            result.innerHTML = "";
+            info.textContent = "Searching for pokemon species..."
+
+            if (!name) {
+
+                info.textContent = "serach bar lo value ni enter cheuu ra langakoda ..."
+                return;
+            }
+
+            try {
+
+                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${encodeURIComponent(name)}`);
+
+                const jsonData = await response.json();
+
+                if (jsonData.name && jsonData.height && jsonData.weight) {
+
+                    info.textContent = "";
+
+                    result.innerHTML = `
+                <article class="card">
+                      <h1>${jsonData.name}</h1>
+                    <div class="x">
+                        <p> height : ${jsonData.height}</p>
+                        <p> weight : ${jsonData.weight}</p>
+                        </div>
+                         </article>
+`;
+
+                }
+
+            } catch (error) {
+
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hone{
+
+            color: lightpink;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="hone">Dom playground!</h1>
+    <div id ="container">
+
+    </div>
+
+    <script>
+
+        const hone = document.getElementById("hone");
+
+        console.log(hone);
+
+        const span = document.createElement("span")
+
+        span.textContent="Welcome";
+
+        hone.appendChild(span)
+
+        const div = document.getElementById("container");
+
+        const image = document.createElement("img")
+
+        div.appendChild(image);
+
+        console.log(div);
+
+        image.setAttribute("src","https://img.freepik.com/premium-photo/red-fack-text-black-background_824086-2501.jpg");
+        image.setAttribute("alt","myImage")
+
+        hone.classList.add("hone");
+        hone.classList.remove("hone")
+        hone.classList.toggle("hone");
+        console.log(hone.classList.contains("hone"))
+
+
+
+    </script>
+    
+</body>
+</html>

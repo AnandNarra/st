@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form">
+        <label for="userName">UserName</label>
+        <input type="text" id="userName" placeholder="Enter UserName" />
+        
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="password"/>
+
+        <button type="submit" id="submit">Submit</button>
+
+    </form>
+
+    <script>
+
+        const form = document.getElementById("form")
+        const userName = document.getElementById("userName")
+        const password = document.getElementById("password")
+
+        form.addEventListener("submit",(event)=>{
+
+            event.preventDefault();
+
+            const task ={
+                name,
+                password
+            }
+
+            task.name=userName.value;
+            task.password=password.value;
+
+            console.log(task)
+
+            
+        })
+
+
+
+
+    </script>
+</body>
+</html>

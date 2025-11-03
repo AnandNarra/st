@@ -1,21 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css'
-import ChangeColor from './Components/ChangeColor/ChangeColor'
-import OpenRole from './Components/peerlist/scroll/OpenRole'
-import FormApp from './Components/Form/FormApp'
-import Controlled from './Components/Form/Controlled'
+import UseEffectApi from './Components/useEffect-Api/useEffectApi'
+import PrimaryButton from './Components/Ui/PrimaryButton'
+
+
+
 
 function App() {
 
   const dummyOpenRoles = ["frontend", "backend engineer", "Ui/Ux designer", "product manger", "ceo", "cto ", "coo"]
 
+  const [show , setShow] = useState(false)
+
+  function handleButton(){
+      setShow(!show)
+    }
+
   return (
 
     <>
-      <div className='bg-yellow-200 h-screen w-screen flex  items-center justify-center'>
-        
-        <FormApp/>
-      </div>
+      
+      <PrimaryButton onAnand={handleButton}>
+        {show ? "Hide" : "Show"}
+      </PrimaryButton>
+
+      {
+        show && ( <p>I am the ghost</p>)
+      }
+
 
     </>
   )

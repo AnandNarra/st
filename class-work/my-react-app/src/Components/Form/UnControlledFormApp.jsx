@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function FormApp(){
+function UnControlledFormApp(){
 
     const [name ,setName] =useState();
 
@@ -28,4 +28,4 @@ function FormApp(){
     )
 }
 
-export default FormApp;
+export default UnControlledFormApp;
